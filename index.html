@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111310">
+    <meta name="description" content="Morrow is your home for music. Find a new favorite and keep the good ones close.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Morrow — your home for music</title>
+</head>
+<body>
+    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></symbol>
+        <symbol id="i-library" viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10M4 20h10"/></symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+        <symbol id="i-prev" viewBox="0 0 24 24"><path d="M5 5v14M19 6l-10 6 10 6z"/></symbol>
+        <symbol id="i-next" viewBox="0 0 24 24"><path d="M19 5v14M5 6l10 6-10 6z"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 12 7-12 7z"/></symbol>
+        <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5h3v14H8zM15 5h3v14h-3z"/></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 8.8c0 5-8.8 10-8.8 10s-8.8-5-8.8-10A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"/></symbol>
+        <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></symbol>
+        <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
+        <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6l-5 4zM17 9a5 5 0 0 1 0 6M19 5a10 10 0 0 1 0 14"/></symbol>
+        <symbol id="i-queue" viewBox="0 0 24 24"><path d="M4 6h16M4 11h16M4 16h10M18 16v6M15 19h6"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+        <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+        <symbol id="i-forward" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    </svg>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#home" aria-label="Morrow home"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span><span>morrow<span class="brand-dot">.</span></span></a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-item is-active" type="button" data-page="home"><svg><use href="#i-home"/></svg><span>Home</span></button>
+                <button class="nav-item" type="button" data-page="search"><svg><use href="#i-search"/></svg><span>Search</span></button>
+                <button class="nav-item" type="button" data-page="library"><svg><use href="#i-library"/></svg><span>Your library</span></button>
+            </nav>
+            <div class="sidebar-rule"></div>
+            <section class="library-block">
+                <div class="library-topline"><button class="library-label" type="button" data-page="library"><svg><use href="#i-library"/></svg>Your collection</button><button class="round-button small-round" id="new-playlist" type="button" aria-label="Create playlist" title="Create playlist"><svg><use href="#i-plus"/></svg></button></div>
+                <button class="liked-link" type="button" data-page="liked"><span class="liked-icon"><svg><use href="#i-heart"/></svg></span><span><strong>Liked songs</strong><small id="liked-count">Your favorites</small></span></button>
+                <div class="playlist-list" id="playlist-list"></div>
+            </section>
+            <div class="sidebar-bottom"><span class="status-dot"></span><span>Made for listening</span></div>
+        </aside>
+        <main class="main-panel">
+            <header class="topbar">
+                <div class="history-controls"><button class="round-button history-button" type="button" aria-label="Go back" title="Go back"><svg><use href="#i-back"/></svg></button><button class="round-button history-button" type="button" aria-label="Go forward" title="Go forward"><svg><use href="#i-forward"/></svg></button></div>
+                <label class="search-field" id="search-field"><svg><use href="#i-search"/></svg><input id="search-input" type="search" placeholder="Search your music" autocomplete="off" aria-label="Search your music library"><kbd>/</kbd></label>
+                <div class="topbar-end"><button class="import-button" id="import-music" type="button" aria-label="Add music" title="Add music"><svg><use href="#i-plus"/></svg><span>Add music</span></button><span class="preview-label"><span class="status-dot"></span> CC0 STARTER LIBRARY</span><button class="avatar" type="button" aria-label="Your profile">M</button></div>
+            </header>
+            <div class="content-scroll" id="content-scroll">
+                <section class="hero" id="hero">
+                    <div class="hero-text"><p class="overline"><span class="hero-star">✳</span> YOUR PERSONAL SOUNDTRACK</p><h1 id="hero-title">A good day<br>starts <em>here.</em></h1><p class="hero-description" id="hero-description">Your music, your way. Bring your library along.</p><button class="hero-button" id="hero-play" type="button"><svg><use href="#i-plus"/></svg><span>Add your own music</span></button></div>
+                    <div class="hero-art" aria-hidden="true"><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div><div class="hero-sun"></div><div class="hero-record"><span></span></div><span class="hero-sticker">SIDE<br>A</span><span class="hero-caption">LIFE SOUNDS<br>BETTER IN COLOR</span></div>
+                    <span class="hero-index">001 <i></i> 026</span>
+                </section>
+                <section class="section-block" id="browse-section">
+                    <div class="section-header"><div><p class="section-kicker" id="section-kicker">YOUR MUSIC, IN ONE PLACE</p><h2 id="section-title">Your library</h2></div><span class="results-count" id="results-count"></span></div>
+                    <div class="filter-row" aria-label="Filter your music"><button class="filter-chip is-selected" type="button" data-filter="all">All tracks</button><button class="filter-chip" type="button" data-filter="recent">Recently added</button><button class="filter-chip" type="button" data-filter="liked">Liked songs</button></div>
+                    <div class="track-grid" id="track-grid" aria-live="polite"><div class="loading-state"><span class="loading-disc"></span><span>Finding your next favorite...</span></div></div>
+                </section>
+                <section class="note-band"><span class="note-mark">M.</span><p>25 public-domain piano recordings by Kimiko Ishizaka, released CC0 and streamed from Internet Archive.</p><span class="note-line"></span></section>
+            </div>
+        </main>
+        <aside class="right-rail" aria-label="Listening queue">
+            <div class="rail-heading"><div><p class="section-kicker">UP NEXT</p><h2>Your queue</h2></div><button class="text-button" id="clear-queue" type="button">Clear</button></div>
+            <div class="queue-current-label">NOW PLAYING</div><div class="rail-current" id="rail-current"><div class="rail-empty-art">M.</div><p>Pick a song to get started</p><span>Your next favorite is out there.</span></div>
+            <div class="queue-heading"><h3>Coming up</h3><span id="queue-count">0 tracks</span></div><div class="queue-list" id="queue-list"><div class="queue-empty">Your queue is clear.<br>Add a track with the + button.</div></div>
+            <div class="rail-footer"><span class="rail-wave">〰</span><span>LOCAL AUDIO<br><small>Full-length playback</small></span></div>
+        </aside>
+        <footer class="player-bar" aria-label="Audio player">
+            <div class="player-track"><div class="player-cover" id="player-cover"><span>M.</span></div><div class="player-track-info"><strong id="player-title">Nothing playing</strong><span id="player-artist">Choose a track to begin</span></div><button class="heart-button" id="like-track" type="button" aria-label="Like track" title="Like track"><svg><use href="#i-heart"/></svg></button></div>
+            <div class="player-center"><div class="transport-controls"><button class="transport-button" id="shuffle-button" type="button" aria-label="Shuffle" title="Shuffle"><svg><use href="#i-shuffle"/></svg></button><button class="transport-button" id="previous-button" type="button" aria-label="Previous track" title="Previous"><svg><use href="#i-prev"/></svg></button><button class="play-toggle" id="play-button" type="button" aria-label="Play"><svg><use href="#i-play"/></svg></button><button class="transport-button" id="next-button" type="button" aria-label="Next track" title="Next"><svg><use href="#i-next"/></svg></button><button class="transport-button" id="repeat-button" type="button" aria-label="Repeat" title="Repeat"><svg><use href="#i-repeat"/></svg></button></div><div class="timeline"><span id="elapsed-time">0:00</span><input id="progress-slider" type="range" min="0" max="100" value="0" aria-label="Track progress"><span id="duration-time">0:00</span></div></div>
+            <div class="player-tools"><button class="transport-button queue-toggle" type="button" aria-label="Queue"><svg><use href="#i-queue"/></svg></button><svg class="volume-icon"><use href="#i-volume"/></svg><input id="volume-slider" type="range" min="0" max="100" value="75" aria-label="Volume"><span class="volume-value" id="volume-value">75</span></div>
+        </footer>
+    </div>
+    <audio id="audio-player" preload="none"></audio>
+    <input id="audio-files" type="file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.flac,.opus" multiple hidden>
+    <dialog class="playlist-dialog" id="playlist-dialog"><form method="dialog" id="playlist-form"><button class="dialog-close" value="cancel" aria-label="Close"><svg><use href="#i-close"/></svg></button><p class="section-kicker">MAKE IT YOURS</p><h2>Create a playlist</h2><p class="dialog-copy">Give this collection a name. You can add songs as you discover them.</p><label class="playlist-input-label" for="playlist-name">Playlist name</label><input id="playlist-name" name="name" maxlength="40" placeholder="Sunday morning" required><div class="dialog-actions"><button class="dialog-cancel" value="cancel">Cancel</button><button class="dialog-create" id="create-playlist-button" value="create">Create</button></div></form></dialog>
+    <dialog class="playlist-dialog picker-dialog" id="picker-dialog"><div class="picker-content"><button class="dialog-close" id="picker-close" type="button" aria-label="Close"><svg><use href="#i-close"/></svg></button><p class="section-kicker">SAVE THIS TRACK</p><h2>Add to a playlist</h2><div class="picker-list" id="picker-list"></div><button class="dialog-create picker-create" id="picker-create" type="button">+ Create a playlist</button></div></dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
